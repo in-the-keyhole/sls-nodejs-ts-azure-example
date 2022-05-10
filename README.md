@@ -1,4 +1,4 @@
-# sls-nodejs-multicloud-example
+# sls-nodejs-ts-azure-example
 
 This repository contains a VSCode Remote Container Setup for developing NodeJS/TypeScript based Azure functions using the Serverless Framework.
 
