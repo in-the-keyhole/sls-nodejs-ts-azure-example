@@ -1,0 +1,91 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: sls-nodejs-ts-azure-example
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: "3"
+configValidationMode: off
+
+provider:
+  name: azure
+  location: ${env:AZURE_LOCATION}
+  runtime: nodejs14
+  stage: ${opt:stage, 'dev'}
+
+  apim:
+    apis:
+      - name: v1
+        displayName: Serverless Framework NodeJS Example
+        description: An example NodeJS (Typescript) function deployed by Serverless Framework
+        protocols:
+          - https
+        path: v1
+        subscriptionRequired: false
+        authorization: none
+#       tags:
+#         - tag1
+#         - tag2
+#       cors:
+#         allowCredentials: false
+#         allowedOrigins:
+#           - "*"
+#         allowedMethods:
+#           - GET
+#           - POST
+#           - PUT
+#           - DELETE
+#           - PATCH
+#         allowedHeaders:
+#           - "*"
+#         exposeHeaders:
+#           - "*"
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+functions:
+  hello:
+    handler: src/handlers/hello.sayHello
+    apim:
+      api: v1
+      operations:
+        - method: get
+          urlTemplate: /hello
+          displayName: Hello
+    events:
+      - http: true
+        methods:
+          - GET
+        authLevel: anonymous # can also be `function` or `admin`
+
+  goodbye:
+    handler: src/handlers/goodbye.sayGoodbye
+    apim:
+      api: v1
+      operations:
+        - method: get
+          urlTemplate: /goodbye
+          displayName: GoodBye
+    events:
+      - http: true
+        methods:
+          - GET
+        authLevel: anonymous
+
+plugins: # look for additional plugins in the community plugins repo: https://github.com/serverless/plugins
+  - serverless-azure-functions
+  - serverless-webpack
