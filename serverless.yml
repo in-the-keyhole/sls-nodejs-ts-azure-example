@@ -23,6 +23,7 @@ provider:
   location: ${env:AZURE_LOCATION}
   runtime: nodejs14
   stage: ${opt:stage, 'dev'}
+  resourceGroup: sls-nodejs-ts-azure-example
 
   apim:
     apis:

@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Azure Functions webpack sample for the Serverless framework using Typescript",
   "scripts": {
-    "test": "echo \"No tests yet...\"",
-    "start": "func host start"
+    "start": "sls offline",
+    "deploy": "sls deploy",
+    "undeploy": "sls remove"
   },
   "keywords": [
     "azure",
