@@ -11,9 +11,10 @@
     "azure",
     "serverless"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@azure/functions": "^1.0.3"
+  },
   "devDependencies": {
-    "@azure/functions": "^1.0.3",
     "@types/node": "^13.1.8",
     "fork-ts-checker-webpack-plugin": "^3.0.1",
     "serverless-azure-functions": "^2.1.1",
