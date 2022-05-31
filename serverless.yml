@@ -35,23 +35,6 @@ provider:
         path: v1
         subscriptionRequired: false
         authorization: none
-#       tags:
-#         - tag1
-#         - tag2
-#       cors:
-#         allowCredentials: false
-#         allowedOrigins:
-#           - "*"
-#         allowedMethods:
-#           - GET
-#           - POST
-#           - PUT
-#           - DELETE
-#           - PATCH
-#         allowedHeaders:
-#           - "*"
-#         exposeHeaders:
-#           - "*"
 
 custom:
   webpack:
